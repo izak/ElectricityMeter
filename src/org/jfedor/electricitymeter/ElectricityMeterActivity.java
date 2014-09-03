@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
+import android.view.WindowManager;
 
 public class ElectricityMeterActivity extends Activity {
 	
@@ -51,6 +52,7 @@ public class ElectricityMeterActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.main);
         mStatusBar = (TextView) findViewById(R.id.TextView01);
         mStatusBar2 = (TextView) findViewById(R.id.TextView02);
