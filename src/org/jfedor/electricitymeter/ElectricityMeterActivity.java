@@ -37,6 +37,15 @@ public class ElectricityMeterActivity extends Activity {
         }
         return smallest;
     }
+    
+    private int[] getBestFps(Camera camera){
+    	List<int[]> ranges = camera.getParameters().getSupportedPreviewFpsRange();
+    	int[] best = ranges.get(0);
+    	for (int[] range: ranges){
+    		if (range[1] > best[1]) best = range;
+    	}
+    	return best;
+    }
 
     /** Called when the activity is first created. */
     @Override
@@ -55,6 +64,7 @@ public class ElectricityMeterActivity extends Activity {
 		
         mCamera = Camera.open();
         final Size smallest = this.getSmallestPreviewSize(mCamera);
+        final int[] previewRange = this.getBestFps(mCamera);
         
         mCamera.setDisplayOrientation(90);
         mCamera.setPreviewCallback(new Camera.PreviewCallback() {
@@ -100,7 +110,7 @@ public class ElectricityMeterActivity extends Activity {
 		Camera.Parameters parameters = mCamera.getParameters();
         Log.i("ElectricityMeterActivity", parameters.flatten());
 	    parameters.setPreviewSize(smallest.width, smallest.height);
-	    parameters.setPreviewFpsRange(24000, 30000);
+	    parameters.setPreviewFpsRange(previewRange[0], previewRange[1]);
 	    mCamera.setParameters(parameters);
 		mCamera.startPreview();        
         mSurfaceView = (SurfaceView) findViewById(R.id.SurfaceView01);
