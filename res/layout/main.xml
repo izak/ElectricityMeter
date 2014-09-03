@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <SurfaceView
+        android:id="@+id/SurfaceView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:keepScreenOn="true">
+    </SurfaceView>
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textColor="#33b5e5"
+            android:textSize="84dip"
+            android:textStyle="bold" android:gravity="center_vertical|center_horizontal" android:layout_weight="1">
+        </TextView>
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#33b5e5" android:layout_weight="0">
+        </TextView>
+    </LinearLayout>
+
+</FrameLayout>
