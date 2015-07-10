@@ -57,7 +57,7 @@ public class ElectricityMeterActivity extends Activity {
         mStatusBar = (TextView) findViewById(R.id.TextView01);
         mStatusBar2 = (TextView) findViewById(R.id.TextView02);
         
-        intervals = new long[3];
+        intervals = new long[5];
     }
 
 	@Override
